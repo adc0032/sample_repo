@@ -30,3 +30,6 @@ Use this space to list group members names, contributions, and link github pages
 
 ### Group Information (Group Members)
 
+Amanda Clark [adc0032](github.com/adc0032)
+
+

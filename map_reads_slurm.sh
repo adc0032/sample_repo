@@ -24,13 +24,14 @@ fi
 ## UPDATE THIS VARIABLE ASSIGNMENT TO A SINGLE SAMPLE ID FROM THE LIST: SRR6819014, SRR6819015, SRR6819016, SRR6819017
 
 # sample pulled from array task id (this should be the number of samples you have on your jf list and should be specified in the #SBATCH header)
-sm=$( head -n ${SLURM_ARRAY_TASK_ID} ${jf} | tail -n 1)
+sm="SRR6819015"
 
 ## UPDATE THIS VARIABLE TO RUN A SINGLE MAPPER- PICK ONE FROM BELOW
 # array of mappers
-mappers=(hisat2 star)
+mappers="star"
 
 ## UPDATE THIS TO SUBMIT THE CORRECT MAPPER SCRIPT BASED ON YOUR MAPPERS VARIABLE
 # run trimmed sample reads through hisat2 and through star
-printf '%s\n' "${mappers[@]}" | parallel "sh ~/workflow/run_{}.sh ${sm} ${wd}"
+#printf '%s\n' "${mappers[@]}" | parallel "sh ~/workflow/run_{}.sh ${sm} ${wd}"
 
+sh ~/workflow/run_${mappers}.sh ${sm} ${wd}
